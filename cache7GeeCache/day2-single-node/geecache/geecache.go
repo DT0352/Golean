@@ -72,3 +72,12 @@ func (g *Group) getLocally(key string) (Byteview, error) {
 func (g *Group) populateCache(key string, value Byteview) {
 	g.mainCache.add(key, value)
 }
+
+//GetGroup returns the named group previously created with NewGroup, or
+// nil if there's no such group.
+func GetGroup(name string) *Group {
+	mu.Lock()
+	defer mu.Unlock()
+	g := groups[name]
+	return g
+}
