@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // 查找二叉树的后续节点
 type Node struct {
 	Value  int
@@ -20,7 +16,7 @@ type Node struct {
 //如果一个节点有右node，那么他的后续node就是他右节点的左节点的左节点。。。
 //如果一个节点没有右节点，那么他的后续节点就是他的上级节点，且上级节点的左节点为他的上级节点
 //有右节点 则是
-func getBinaryTree() *Node {
+func GetBinaryTree() *Node {
 	tree1 := Node{1, nil, nil, nil}
 	tree2 := Node{2, nil, nil, nil}
 	tree3 := Node{3, nil, nil, nil}
@@ -66,7 +62,7 @@ func getBinaryTree() *Node {
 	tree13.Parent = &tree6
 	tree14.Parent = &tree7
 	tree15.Parent = &tree7
-	return &tree8
+	return &tree1
 }
 
 // 获得后续节点 中序遍历的下一个节点
@@ -129,8 +125,8 @@ func getPerNode(node *Node) *Node {
 	}
 }
 
-func main() {
-	node := getBinaryTree()
-	fmt.Printf("node[%v]的后续节点：%v\n", node.Value, getSuccessorNode(node).Value)
-	fmt.Printf("node[%v]的前序节点：%v\n", node.Value, getPerNode(node).Value)
-}
+//func main() {
+//	node := GetBinaryTree()
+//	fmt.Printf("node[%v]的后续节点：%v\n", node.Value, getSuccessorNode(node).Value)
+//	fmt.Printf("node[%v]的前序节点：%v\n", node.Value, getPerNode(node).Value)
+//}
